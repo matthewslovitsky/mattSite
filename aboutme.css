@@ -1,0 +1,162 @@
+/* Fix header at top */
+.header-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: white;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #ccc;
+    transition: opacity 0.4s ease-out;
+    z-index: 1000;
+}
+
+/* Adjust page layout to account for fixed header */
+.snap-container {
+    margin-top: 80px;
+    /* Push below fixed header */
+    height: calc(100vh - 80px);
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+
+
+}
+
+/* Snap scrolling section */
+.center-screen {
+    scroll-snap-align: start;
+    min-height: calc(100vh - 80px); /* full screen minus header */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* vertical center */
+    align-items: center;     /* horizontal center */
+    text-align: center;
+    padding: 2rem 1rem;
+}
+/* Animation styles */
+.hidden-on-load {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.show-on-scroll {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    /* ✅ KEEP THIS if scroll is INSIDE .snap-container */
+}
+
+.container-one h1 {
+    font-family: "Source Code Pro", serif;
+    /*added font from google*/
+}
+
+
+.section-heading {
+    text-align: center;
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 2rem;
+    margin: 2rem 0;
+    
+  }
+
+  .container {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    --convexity: 2;
+            --metal: neutral;
+  }
+
+  .container-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    --convexity: -2;
+            --metal: neutral;
+
+  }
+
+  .container-layout {
+        font-family: "Source Code Pro", serif;
+        font-weight: 700;
+        color: #444;
+        text-shadow: 
+            1px 1px 0 #fff,
+           -1px -1px 1px #999;
+    
+        background: #e0e0e0;
+        border-radius: 8px;
+        padding: 1rem;
+        box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.1),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.7);
+        font-size: 25px;
+    
+
+  }
+  .container-layout:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+  .container-layout img {
+    height: 100px;
+    width: auto;
+    margin: 0 auto 1rem;
+  }
+
+  .container-layout p {
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: left;
+  }
+  .siena-pic {
+    height: 100px;
+    width: auto;
+    margin-bottom: 1rem;
+    align-self: center;
+  }
+
+  #typewriter{
+    font-family: "Source Code Pro", serif;
+    font-size: 25px;
+
+  }
+  #typewriter-text::after {
+    content: "|";
+    animation: blink 1s infinite;
+    margin-left: 2px;
+    color: white; 
+
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+h1{
+    color: white;
+     text-shadow: 1px 3px 6px black;
+}
+
+.container-layout p {
+    font-size: 35px;
+}
