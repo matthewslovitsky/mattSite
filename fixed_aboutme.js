@@ -1,7 +1,11 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-    if (isMobile) return; // Skip all JS for mobile to prevent Safari crashes
+    if (isMobile) {
+        document.querySelectorAll(".animated-runner-one, .animated-runner-two, .earth, .orbit, .star-one, .star-two, .star-three, .star-four, .fade-text, .scrolling-text")
+            .forEach(el => el.remove());
+        return;
+    }
 
     // Scroll Animation Observer (desktop only)
     const observer = new IntersectionObserver((entries, obs) => {
