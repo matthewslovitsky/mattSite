@@ -11,22 +11,7 @@
         rel="stylesheet">
 
 
-        <script>
-            if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-              document.addEventListener("DOMContentLoaded", () => {
-                // Remove animated elements before they start
-                const selectors = [
-                  ".animated-runner-one", ".animated-runner-two",
-                  ".earth", ".orbit",
-                  ".star-one", ".star-two", ".star-three", ".star-four",
-                  ".fade-text", ".scrolling-text"
-                ];
-                selectors.forEach(sel => {
-                  document.querySelectorAll(sel).forEach(el => el.remove());
-                });
-              });
-            }
-          </script>
+        
     <script defer src="aboutme.js"></script> <!-- javascript -->
     <script type="module" src="https://unpkg.com/metallicss@4.0.3/dist/metallicss.min.js"></script>
 
