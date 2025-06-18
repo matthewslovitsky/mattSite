@@ -2,9 +2,6 @@
 
 
 
-    // Skip animation entirely
-    console.log("Mobile device detected, skipping JS animations.");
-
     document.addEventListener("DOMContentLoaded", () => {
         // Typewriter effect
         const text = "SCROLL TO SEE MY EXPERIENCE";
