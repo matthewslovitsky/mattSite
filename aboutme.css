@@ -93,6 +93,15 @@ body {
 
   }
 
+  @media screen and (max-width: 768px) {
+    .container-grid {
+     width: 50%;
+     margin-right: 150px;
+     height: 50%;
+    }
+    
+  }
+
   .container-layout {
         font-family: "Source Code Pro", serif;
         font-weight: 700;
