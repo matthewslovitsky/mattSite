@@ -56,7 +56,7 @@
         display: flex;
         gap: 20px; /* Adds space between repeating text */
         min-width: 200%; 
-        animation: scrollText 6s linear infinite;
+        animation: scrollText 20s linear infinite;
     }
     
     @keyframes scrollText {
@@ -98,6 +98,14 @@
 
     }
     
+    @media screen and (max-width: 768px) {
+        .container-grid {
+         width: 50%;
+         margin-right: 150px;
+         height: 50%;
+        }
+        
+      }
 
     .fade-text:first-of-type { animation-delay: 0s; }
     .fade-text:nth-of-type(2) { animation-delay: 6s; }
@@ -402,3 +410,11 @@ main{
     
 }
 
+@media (max-width: 768px) {
+    .star-one,
+    .star-two,
+    .star-three,
+    .star-four {
+        display: none !important;
+    }
+}
