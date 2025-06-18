@@ -164,7 +164,7 @@
         transform: translateX(50vw) translateY(-20px);
     }
     100% {
-        transform: translateX(-10vw) translateY(0vw);
+        transform: translateX(-40vw) translateY(0vw);
     }
 }
 .animated-runner-two {
