@@ -13,7 +13,7 @@
     
             function typeLoop() {
                 if (isDeleting) {
-                    if (index > 0) {
+                    if (index > 1) {
                         index--;
                         target.textContent = text.substring(0, index);
                     } else {

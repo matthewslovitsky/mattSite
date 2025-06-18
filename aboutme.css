@@ -147,11 +147,19 @@ body {
 
 }
 
+
+
 @keyframes blink {
-    0%, 100% { opacity: 1; }
+    1%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
 
+
+@media screen and (max-width: 768px) {
+  #typewriter{
+    font-size: 1rem;
+  }
+}
 h1{
     color: white;
      text-shadow: 1px 3px 6px black;
