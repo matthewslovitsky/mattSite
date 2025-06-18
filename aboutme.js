@@ -21,26 +21,30 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener("DOMContentLoaded", function () {
     const text = "SCROLL TO SEE MY EXPERIENCE";
     const target = document.getElementById("typewriter");
+
     let index = 0;
     let isDeleting = false;
 
     function typeLoop() {
-        if (!isDeleting) {
-            target.textContent = text.substring(0, index + 1);
-            index++;
-            if (index === text.length) {
-                isDeleting = true;
-                setTimeout(typeLoop, 1500); // Pause before deleting
-                return;
-            }
-        } else {
-            target.textContent = text.substring(0, index + 1);
-            index--;
-            if (index === 1) {
+        if (isDeleting) {
+            if (index > 0) {
+                index--;
+                target.textContent = text.substring(0, index);
+            } else {
                 isDeleting = false;
             }
+        } else {
+            if (index < text.length) {
+                index++;
+                target.textContent = text.substring(0, index);
+            } else {
+                isDeleting = true;
+                setTimeout(typeLoop, 1500); // pause at full text
+                return;
+            }
         }
-        setTimeout(typeLoop, isDeleting ? 50 : 100); // Typing speed
+
+        setTimeout(typeLoop, isDeleting ? 50 : 100);
     }
 
     typeLoop();
