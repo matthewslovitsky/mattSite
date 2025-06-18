@@ -417,4 +417,15 @@ main{
     .star-four {
         display: none !important;
     }
+
+    
+}
+
+@media (max-width: 768px) {
+    .star-one,
+    .star-two,
+    .star-three,
+    .star-four {
+        animation: none !important;
+    }
 }
