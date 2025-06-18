@@ -266,5 +266,13 @@
     </div>
 
 </body>
+<script>
+    if (!/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        const script = document.createElement('script');
+        script.src = 'aboutme.js';
+        script.defer = true;
+        document.head.appendChild(script);
+    }
+</script>
 
 </html>
