@@ -1,12 +1,10 @@
 
-function isMobileDevice() {
-    return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-}
 
-if (isMobileDevice()) {
+
+
     // Skip animation entirely
     console.log("Mobile device detected, skipping JS animations.");
-} else {
+
     document.addEventListener("DOMContentLoaded", () => {
         // Typewriter effect
         const text = "SCROLL TO SEE MY EXPERIENCE";
@@ -61,5 +59,5 @@ if (isMobileDevice()) {
             el.style.transitionDelay = `${index * 25}ms`;
             observer.observe(el);
         });
-    });}
+    });
 
