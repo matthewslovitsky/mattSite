@@ -327,7 +327,7 @@ article {
     width: 600px; 
     height: 600px;
     position: absolute;
-    animation: spin 10s linear infinite;
+    animation: spin 30s linear infinite;
     transform-origin: center;
 
 }
@@ -336,7 +336,7 @@ article {
     width: 200px; 
     position: absolute;
     transform-origin: 200px center; /* orbit distance */
-    animation: orbitAnimation 8s linear infinite;
+    animation: orbitAnimation 30s linear infinite;
 }
 
 @keyframes spin {
