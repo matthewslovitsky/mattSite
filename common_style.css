@@ -64,6 +64,13 @@
         to { transform: translateX(-50%); } 
     }
 
+    @media (max-width: 768px) {
+        .scrolling-text {
+            animation: none !important;
+            transform: none !important;
+        }
+    }
+
     .welcome-text {
         position: relative;
         display: flex;
