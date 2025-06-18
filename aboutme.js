@@ -1,42 +1,67 @@
 
+function isMobileDevice() {
+    return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
+
+if (isMobileDevice()) {
+    // Skip animation entirely
+    console.log("Mobile device detected, skipping JS animations.");
+} else {
+    // Run animation here
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-    const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-    if (isMobile) {
-        document.querySelectorAll(".animated-runner-one, .animated-runner-two, .earth, .orbit, .star-one, .star-two, .star-three, .star-four, .fade-text, .scrolling-text")
-            .forEach(el => el.remove());
-        return;
+    // Typewriter effect
+    const text = "SCROLL TO SEE MY EXPERIENCE";
+    const target = document.getElementById("typewriter");
+
+    if (target) {
+        let index = 0;
+        let isDeleting = false;
+
+        function typeLoop() {
+            if (isDeleting) {
+                if (index > 0) {
+                    index--;
+                    target.textContent = text.substring(0, index);
+                } else {
+                    isDeleting = false;
+                }
+            } else {
+                if (index < text.length) {
+                    index++;
+                    target.textContent = text.substring(0, index);
+                } else {
+                    isDeleting = true;
+                    setTimeout(typeLoop, 1500); // pause at full text
+                    return;
+                }
+            }
+
+            setTimeout(typeLoop, isDeleting ? 50 : 100);
+        }
+
+        typeLoop();
     }
 
-    // Scroll Animation Observer (desktop only)
-    const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("show-on-scroll");
-                obs.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.15 });
+    // Scroll-based reveal animations
+    const observer = new IntersectionObserver(
+        (entries, obs) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show-on-scroll");
+                    obs.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.1 }
+    );
 
-    const hiddenElements = document.querySelectorAll(".hidden-on-load, .container-layout");
+    const hiddenElements = document.querySelectorAll(
+        ".hidden-on-load, .container-layout"
+    );
     hiddenElements.forEach((el, index) => {
-        el.style.opacity = "0";
-        el.style.transition = "opacity 0.6s ease-out";
+        el.style.transitionDelay = `${index * 25}ms`;
         observer.observe(el);
     });
-
-    // Typewriter (desktop only)
-    const target = document.getElementById("typewriter");
-    if (target) {
-        const text = "SCROLL TO SEE MY EXPERIENCE";
-        let index = 0;
-
-        const typeStep = () => {
-            if (index <= text.length) {
-                target.textContent = text.slice(0, index++);
-                setTimeout(typeStep, 80);
-            }
-        };
-
-        typeStep();
-    }
 });
